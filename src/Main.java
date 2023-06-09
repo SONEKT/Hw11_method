@@ -7,15 +7,15 @@ public class Main {
         task3();
     }
 
-    public static boolean checkLeapYear(int year) {
+    public static boolean isLeapYear(int year) {
         return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
     }
 
     public static String checkPhone(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
-        boolean phoneNew = clientDeviceYear >= currentYear;
+        boolean isPhoneNew = clientDeviceYear >= currentYear;
 
-        String version = phoneNew ? "приложение" : "облегченную версию приложения";
+        String version = isPhoneNew ? "приложение" : "облегченную версию приложения";
 
         if (clientOS == 0) {
             return "Установите " + version + " для iOS по ссылке";
@@ -43,7 +43,7 @@ public class Main {
         System.out.println("Задача 1");
 
         var year = 2004;
-        var currentYear = checkLeapYear(year);
+        var currentYear = isLeapYear(year);
 
         if (currentYear) {
             System.out.println(year + " год - високосный год.");
@@ -54,8 +54,9 @@ public class Main {
 
     public static void task2() {
         System.out.println("Задача 2");
-
-        var clientOS = 0;
+        var android = 1;
+        var ios = 0;
+        var clientOS = android;
         var clientDeviceYear = 2009;
 
         var clientResult = checkPhone(clientOS, clientDeviceYear);
